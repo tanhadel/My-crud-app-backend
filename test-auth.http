@@ -1,0 +1,28 @@
+### Register User
+POST http://localhost:5057/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+
+###
+
+### Login User
+POST http://localhost:5057/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+###
+
+### Get All Users (Development only)
+GET http://localhost:5057/api/auth/users
+
+###
