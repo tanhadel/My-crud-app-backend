@@ -16,7 +16,22 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "http://localhost:63033", "http://localhost:4201","http://localhost:49298")
+        var allowedOrigins = new List<string>
+        {
+            "http://localhost:4200", 
+            "http://localhost:63033", 
+            "http://localhost:4201",
+            "http://localhost:49298"
+        };
+        
+        // Add production frontend URL from environment variable if exists
+        var productionUrl = Environment.GetEnvironmentVariable("FRONTEND_URL");
+        if (!string.IsNullOrEmpty(productionUrl))
+        {
+            allowedOrigins.Add(productionUrl);
+        }
+        
+        policy.WithOrigins(allowedOrigins.ToArray())
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
@@ -29,9 +44,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("BookApiDb"));
 
 // Configure JWT authentication
-// Reads settings from appsettings.json
+// Reads settings from appsettings.json or environment variables (Railway, Azure, etc.)
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var secretKey = jwtSettings["SecretKey"] ?? throw new InvalidOperationException("JWT SecretKey not configured");
+var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") 
+    ?? jwtSettings["SecretKey"] 
+    ?? throw new InvalidOperationException("JWT SecretKey not configured");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -46,8 +63,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidAudience = jwtSettings["Audience"],
+        ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? jwtSettings["Issuer"],
+        ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? jwtSettings["Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
         ClockSkew = TimeSpan.Zero 
         // Remove default 5 minute clock skew
