@@ -10,6 +10,8 @@ using BookApi.DTOs;
 using BookApi.Models;
 
 namespace BookApi.Controllers;
+/// Controller for authentication (registration and login).
+/// Handles user registration, login, and JWT token generation.
 
 [ApiController]
 [Route("api/[controller]")]
@@ -24,6 +26,10 @@ public class AuthController : ControllerBase
         _configuration = configuration;
     }
 
+  
+    /// Registers a new user.
+    /// "registerDto"User registration data
+    /// AuthResponseDto with JWT token and user info
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
     {
@@ -64,15 +70,10 @@ public class AuthController : ControllerBase
         });
     }
 
-    [HttpGet("users")]
-    public async Task<ActionResult> GetAllUsers()
-    {
-        var users = await _context.Users
-            .Select(u => new { u.Id, u.Username, u.Email, u.CreatedAt })
-            .ToListAsync();
-        return Ok(users);
-    }
-
+  
+    /// Logs in an existing user.
+    /// "loginDto">Email and password
+    /// AuthResponseDto with JWT token and user info
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
     {
@@ -101,6 +102,7 @@ public class AuthController : ControllerBase
         });
     }
 
+    /// Hashes a password using SHA256.
     private string HashPassword(string password)
     {
         using var sha256 = SHA256.Create();
@@ -108,12 +110,16 @@ public class AuthController : ControllerBase
         return Convert.ToBase64String(hashedBytes);
     }
 
+    /// Verifies that a password matches a stored hash.
+
     private bool VerifyPassword(string password, string storedHash)
     {
         var hashOfInput = HashPassword(password);
         return hashOfInput == storedHash;
     }
 
+    /// Generates a JWT token for a user.
+    /// Token contains the user's ID, name, and email as claims.
     private string GenerateJwtToken(User user)
     {
         var jwtSettings = _configuration.GetSection("JwtSettings");

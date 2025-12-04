@@ -1,5 +1,8 @@
 namespace BookApi.Models;
 
+
+/// User model used for authentication and linking books/quotes to specific users.
+
 public class User
 {
     public int Id { get; set; }

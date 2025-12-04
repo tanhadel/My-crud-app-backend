@@ -9,8 +9,6 @@ Content-Type: application/json
 }
 
 
-###
-
 ### Login User
 POST http://localhost:5057/api/auth/login
 Content-Type: application/json
@@ -20,9 +18,9 @@ Content-Type: application/json
   "password": "password123"
 }
 
-###
+
 
 ### Get All Users (Development only)
 GET http://localhost:5057/api/auth/users
 
-###
+

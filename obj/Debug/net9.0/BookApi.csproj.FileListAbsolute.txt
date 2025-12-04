@@ -35,6 +35,7 @@ C:\Users\taher\BookApi\obj\Debug\net9.0\BookApi.AssemblyInfo.cs
 C:\Users\taher\BookApi\obj\Debug\net9.0\BookApi.csproj.CoreCompileInputs.cache
 C:\Users\taher\BookApi\obj\Debug\net9.0\BookApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\taher\BookApi\obj\Debug\net9.0\BookApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\taher\BookApi\obj\Debug\net9.0\BookApi.sourcelink.json
 C:\Users\taher\BookApi\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\taher\BookApi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\taher\BookApi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json

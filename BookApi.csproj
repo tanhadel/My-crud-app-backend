@@ -12,4 +12,5 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.9" />
   </ItemGroup>
 
-</Project>
+  <ItemGroup>    <Compile Remove="Tests\**" />    <Content Remove="Tests\**" />    <EmbeddedResource Remove="Tests\**" />    <None Remove="Tests\**" />  </ItemGroup></Project>
+
