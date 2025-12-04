@@ -1,0 +1,8 @@
+# Railway ignore file
+Tests/
+obj/
+bin/
+*.user
+*.suo
+.vs/
+.vscode/
