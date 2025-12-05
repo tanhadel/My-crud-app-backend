@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PublishReadyToRun>false</PublishReadyToRun>
     <InvariantGlobalization>false</InvariantGlobalization>
+    <RestorePackagesPath>$(MSBuildProjectDirectory)/packages</RestorePackagesPath>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
 
   <ItemGroup>
