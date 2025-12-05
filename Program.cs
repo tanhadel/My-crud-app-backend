@@ -21,7 +21,8 @@ builder.Services.AddCors(options =>
             "http://localhost:4200", 
             "http://localhost:63033", 
             "http://localhost:4201",
-            "http://localhost:49298"
+            "http://localhost:49298",
+            "https://tts-crud-app.netlify.app"
         };
         
         // Add production frontend URL from environment variable if exists
