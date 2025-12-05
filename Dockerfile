@@ -9,20 +9,26 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish BookApi.csproj -c Release -o out
+
+# Debug: List what we built
+RUN ls -la out/
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 
 # Copy only the published output (NOT global.json or other files)
-COPY --from=build /app/out ./
+COPY --from=build /app/out .
+
+# Debug: List what we copied
+RUN ls -la
 
 # Set environment variables
-ENV ASPNETCORE_URLS=http://0.0.0.0:8080
+ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-8080}
 ENV ASPNETCORE_ENVIRONMENT=Production
 
-# Railway sets PORT, but we listen on 8080 by default
+# Railway sets PORT dynamically
 EXPOSE 8080
 
 # Run the app
