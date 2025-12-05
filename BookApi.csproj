@@ -6,7 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PublishReadyToRun>false</PublishReadyToRun>
     <InvariantGlobalization>false</InvariantGlobalization>
-    <RestorePackagesPath>$(MSBuildProjectDirectory)/packages</RestorePackagesPath>
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
 
@@ -16,5 +15,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.9" />
   </ItemGroup>
 
-  <ItemGroup>    <Compile Remove="Tests\**" />    <Content Remove="Tests\**" />    <EmbeddedResource Remove="Tests\**" />    <None Remove="Tests\**" />  </ItemGroup></Project>
+  <ItemGroup>
+    <Compile Remove="Tests\**" />
+    <Compile Remove="BookApi.Tests\**" />
+    <Content Remove="Tests\**" />
+    <Content Remove="BookApi.Tests\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <EmbeddedResource Remove="BookApi.Tests\**" />
+    <None Remove="Tests\**" />
+    <None Remove="BookApi.Tests\**" />
+  </ItemGroup></Project>
 
