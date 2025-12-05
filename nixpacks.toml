@@ -1,14 +1,13 @@
 [phases.setup]
 nixPkgs = ["dotnet-sdk_9"]
 
-[phases.install]
-cmds = ["dotnet nuget locals all --clear"]
-
 [phases.build]
 cmds = [
-  "dotnet restore BookApi.csproj --disable-parallel",
-  "dotnet build BookApi.csproj -c Release --no-restore",
-  "dotnet publish BookApi.csproj -c Release -o out --no-build"
+  "rm -f *.sln",
+  "dotnet clean BookApi.csproj || true",
+  "rm -rf obj bin .nuget",
+  "dotnet restore BookApi.csproj --force --no-cache",
+  "dotnet publish BookApi.csproj -c Release -o out /p:UseAppHost=false"
 ]
 
 [start]

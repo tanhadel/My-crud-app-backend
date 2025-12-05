@@ -5,6 +5,7 @@ bin/
 .nuget/
 *.user
 *.suo
+*.sln
 .vs/
 .vscode/
 *.md
