@@ -2,7 +2,11 @@
 Tests/
 obj/
 bin/
+.nuget/
 *.user
 *.suo
 .vs/
 .vscode/
+*.md
+.git/
+.gitignore
