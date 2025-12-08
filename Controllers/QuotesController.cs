@@ -119,12 +119,12 @@ public class QuotesController : ControllerBase
         return Ok(quotes);
     }
     // Creates a new quote for the logged-in user.
-    /// Creates a new quote for the logged-in user.
-    /// The author field is independent and can be manually edited.
-    /// The quote is automatically linked to the user's ID.
+    // Creates a new quote for the logged-in user.
+    // The author field is independent and can be manually edited.
+    // The quote is automatically linked to the user's ID.
     
     // createQuoteDto  Data for the new quote (Text, Author, and BookId are required)</param>
-    /// The newly created quote with generated IDs>
+    // The newly created quote with generated IDs>
     [HttpPost]
     public async Task<ActionResult<QuoteDto>> CreateQuote(CreateQuoteDto createQuoteDto)
     {

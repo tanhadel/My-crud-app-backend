@@ -135,19 +135,19 @@ TYP DIN INFO                BACKEND GÖR               DU FÅR TILLBAKA
                            │              │
                            │ Skapar token │
                            └──────────────┘
-```
+
 
 Registrering - Steg för steg
 
 Steg 1: Du fyller i formulär
 
-📝 Registreringsformulär:
+Registreringsformulär:
 ┌─────────────────────────┐
 │ Användarnamn: johan     │
 │ Email: johan@mail.com   │
 │ Lösenord: hemligt123    │
 │                         │
-│     [Registrera] 🚀     │
+│     [Registrera]      │
 └─────────────────────────┘
 
 
@@ -289,7 +289,7 @@ csharp
 1. Läs vem användaren är från token
 2. Fråga databasen: "Ge böcker med detta ID"
 3. Skicka tillbaka listan
-```
+
 
 2. Hämta En Bok (GET /api/books/5)
 
@@ -855,7 +855,7 @@ Backend säger till browser:
  - http://localhost:4201 ✓
  - http://localhost:63033 ✓"
 
-Browser: "OK, då litar jag på det! ✅"
+Browser: "OK, då litar jag på det! "
 
 
 Hur CORS fungerar
@@ -1094,9 +1094,9 @@ DEL 9: API Endpoints (Översikt)
 
 
 Säkerhetsgarantier
-Du kan **aldrig** se någon annans data  
-Du kan **aldrig** ändra någon annans data  
-Du kan **aldrig** ta bort någon annans data  
+Du kan aldrig se någon annans data  
+Du kan aldrig ändra någon annans data  
+Du kan aldrig ta bort någon annans data  
 Token går ut efter 24 timmar (måste logga in igen)  
 Lösenord lagras aldrig i klartext (alltid hashat)  
 

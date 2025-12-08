@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 namespace BookApi.DTOs;
 
 
-/// DTO for creating a new quote.
-/// Used in POST /api/quotes
+// DTO for creating a new quote.
+// Used in POST /api/quotes
 
 public class CreateQuoteDto
 {

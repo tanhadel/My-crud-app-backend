@@ -2,8 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookApi.DTOs;
 
-/// DTO for creating a new book.
-/// Used in POST /api/books
+// DTO for creating a new book.
+// Used in POST /api/books
 
 public class CreateBookDto
 {

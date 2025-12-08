@@ -8,7 +8,7 @@
 
 @baseUrl = http://localhost:5057
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdHVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ0ZXN0QGV4YW1wbGUuY29tIiwianRpIjoiZTkxMzZjY2ItZDE1Yy00ZjQzLTk0NmMtM2U4NzBmOTY3MDhiIiwiZXhwIjoxNzY0MTYxNjEyLCJpc3MiOiJCb29rQXBpIiwiYXVkIjoiQm9va0FwaVVzZXJzIn0.oKV-wuBO3G5aCDKNMsSlxQBgEA8O8k1hLoiSbZ0qNUo
-### Register User
+//Register User
 POST {{baseUrl}}/api/auth/register
 Content-Type: application/json
 
@@ -18,9 +18,7 @@ Content-Type: application/json
   "password": "password123"
 }
 
-###
-
-### Login User
+// Login User
 POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
@@ -29,31 +27,29 @@ Content-Type: application/json
   "password": "password123"
 }
 
-###
-
-### Get All Users (Development only - show all registered users)
+//  Get All Users (Development only - show all registered users)
 GET {{baseUrl}}/api/auth/users
 
-###
 
-#############################################
-# BOOKS (Requires Authentication)
-# NOTE: Each user only sees their own books
-#############################################
 
-### Get All Books
+
+// BOOKS (Requires Authentication)
+// NOTE: Each user only sees their own books
+
+
+// Get All Books
 GET {{baseUrl}}/api/books
 Authorization: Bearer {{token}}
 
-###
 
-### Get Book by ID
+// Get Book by ID
 GET {{baseUrl}}/api/books/1
 Authorization: Bearer {{token}}
 
-###
 
-### Create New Book
+
+
+// Create New Book
 POST {{baseUrl}}/api/books
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -66,9 +62,9 @@ Content-Type: application/json
   "isbn": "978-0743273565"
 }
 
-###
 
-### Update Book
+
+ // Update Book
 PUT {{baseUrl}}/api/books/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -78,35 +74,35 @@ Content-Type: application/json
   "description": "An updated description"
 }
 
-###
 
-### Delete Book
+
+ // Delete Book
 DELETE {{baseUrl}}/api/books/1
 Authorization: Bearer {{token}}
 
-#############################################
+
 # QUOTES (User-specific)
 # NOTE: Each user only sees their own quotes
-#############################################
 
-### Get All My Quotes (check what IDs you have!)
+
+// Get All My Quotes (check what IDs you have!)
 GET {{baseUrl}}/api/quotes
 Authorization: Bearer {{token}}
 
-###
 
-### Get Quote by ID (use an ID from the list above)
+
+// Get Quote by ID (use an ID from the list above)
 GET {{baseUrl}}/api/quotes/1
 Authorization: Bearer {{token}}
 
-###
 
-### Get Quotes by Book
+
+// Get Quotes by Book
 GET {{baseUrl}}/api/quotes/book/1
 Authorization: Bearer {{token}}
 
 
-### Create New Quote
+// Create New Quote
 POST {{baseUrl}}/api/quotes
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -118,7 +114,7 @@ Content-Type: application/json
 }
 
 
-### Update Quote
+// Update Quote
 PUT {{baseUrl}}/api/quotes/5
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -128,6 +124,6 @@ Content-Type: application/json
   "pageNumber": 200
 }
 
-### Delete Quote
+ // Delete Quote
 DELETE {{baseUrl}}/api/quotes/3
 Authorization: Bearer {{token}}
